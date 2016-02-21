@@ -115,8 +115,8 @@ public class MycourseFragment extends Fragment {
                                                         int position, long id) {
                                     int itemPosition = position;
                                     String itemValue = (String) Mycourse.getItemAtPosition(position);
-                                    Intent intent_course = new Intent(getContext(), course_info.class);
-                                    startActivity(intent_course);
+                                    Intent intent_teaching = new Intent(getContext(), teaching_assistants.class);
+                                    startActivity(intent_teaching);
 
                                 }
 

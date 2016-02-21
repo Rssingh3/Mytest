@@ -5,16 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-//welcome screen
-/**
- * Created by shashi on 20/2/16.
- */
 
 
 public class SplashScreen extends Activity {
 
     // Splash screen timer
-    private static int SPLASH_TIME_OUT = 2000;
+    private static int SPLASH_TIME_OUT = 1800;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +26,9 @@ public class SplashScreen extends Activity {
 
             @Override
             public void run() {
-                // This method will be executed once the timer is over
-                // Start your app main activity
+
                 Intent i = new Intent(SplashScreen.this, homescreen.class);
                 startActivity(i);
-
-                // close this activity
                 finish();
             }
         }, SPLASH_TIME_OUT);
