@@ -3,12 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.baba_g.myapplication.Fragment3">
-
+    <!--<HorizontalScrollView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
     <ListView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Mygrade"
-        android:layout_gravity="center"
-        android:textStyle="bold" />
-
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"/>
+    <!--</HorizontalScrollView>-->
 </FrameLayout>

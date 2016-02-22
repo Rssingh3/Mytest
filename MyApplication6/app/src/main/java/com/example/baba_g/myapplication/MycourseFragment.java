@@ -106,7 +106,7 @@ public class MycourseFragment extends Fragment {
                             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,list);
 
                             Mycourse.setAdapter(arrayAdapter);
-                            Toast.makeText(getContext(), list.get(1), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getContext(), list.get(1), Toast.LENGTH_SHORT).show();
 
                             Mycourse.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
