@@ -85,7 +85,7 @@ public class MycourseFragment extends Fragment {
                         String response1 = response.toString();
                         try {
 
-                            Toast.makeText(getContext(), response1, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getContext(), response1, Toast.LENGTH_SHORT).show();
 
                             user = new JSONObject(response1);
                             if(user!=null){
@@ -110,7 +110,7 @@ public class MycourseFragment extends Fragment {
 
                                 Mycourse.setAdapter(arrayAdapter);
 
-                            Toast.makeText(getContext(), list.get(1), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getContext(), list.get(1), Toast.LENGTH_SHORT).show();
 
                             Mycourse.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

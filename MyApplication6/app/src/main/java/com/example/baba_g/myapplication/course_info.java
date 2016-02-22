@@ -14,6 +14,7 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+
 public class course_info extends AppCompatActivity {
 
     ArrayList<String> course_code;

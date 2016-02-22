@@ -30,10 +30,11 @@ public class NotificationFragment extends Fragment {
     TextView name;
     ArrayList<String> data;
     String url,courses1,grades1,course_code,score,weight,out_of,temp;
+    String n_str,thread;
     ListView notify;
     String[] course_data;
-    JSONObject subject,grade;
-    JSONArray courses,grades;
+    JSONObject subject,n_object;
+    JSONArray courses,grades,n_array;
     List<String> list = new ArrayList<String>();
     float abs_marks;
     /**
@@ -64,7 +65,7 @@ public class NotificationFragment extends Fragment {
         list.clear();
         View v = inflater.inflate(R.layout.fragment_grades, container, false);
         String[] notifys;
-        url = "http://10.243.145.177:8000/default/grades.json";
+        url = "http://10.243.145.177:8000/default/notifications.json";
 
         RequestQueue queue = Volley.newRequestQueue(getContext());
         notify = (ListView)v. findViewById(R.id.notify);
@@ -83,17 +84,20 @@ public class NotificationFragment extends Fragment {
                             JSONObject user = new JSONObject(response1);
 //                            current_sem = user.getString("current_sem");
 //                            current_year = user.getString("current_year");
-                            courses = user.getJSONArray("courses");
-                            grades = user.getJSONArray("grades");
-                            courses1=courses.toString();
+//                            courses = user.getJSONArray("courses");
+//                            grades = user.getJSONArray("grades");
+
+                            n_array = user.getJSONArray("notifications");
+                            n_str=n_array.toString();
 //                            Toast.makeText(getContext(), courses1, Toast.LENGTH_LONG).show();
 
-                            course_data = new String[courses.length()];
-                            String s="S_no"+"   "+"Course"+"    "+"Grade Item"+"    "+"Score"+"     "+"Weight"+"    "+"Absolute Marks";
+//                            course_data = new String[courses.length()];
+//                            String s="S_no"+"   "+"Course"+"    "+"Grade Item"+"    "+"Score"+"     "+"Weight"+"    "+"Absolute Marks";
+                            String s="S no."+"  "+"Notification";
                             list.add(s);
                             int s_no=1;
                             for(int i = 0;i<courses.length();i++) {
-                                subject = courses.getJSONObject(i);
+                                /*subject = courses.getJSONObject(i);
                                 grade = grades.getJSONObject(i);
                                 course_code = subject.getString("code");
                                 grades1 = grade.getString("name");
@@ -103,10 +107,12 @@ public class NotificationFragment extends Fragment {
                                 abs_marks=(Float.parseFloat(score)*Float.parseFloat(weight))/Float.parseFloat(out_of);
                                 temp = s_no+"     "+course_code + "   " + grades1+ "   " + score+"/"+out_of+"   "+weight+"    "+abs_marks;
 
+                                */
+                                n_object=n_array.getJSONObject(i);
+                                thread=n_object.getString("description");
+                                temp=s_no+"     "+thread;
                                 list.add(temp);
                                 s_no+=1;
-
-
                             }
 
 
@@ -167,6 +173,7 @@ public class NotificationFragment extends Fragment {
 
 
         return v;
+
 
     }
 }

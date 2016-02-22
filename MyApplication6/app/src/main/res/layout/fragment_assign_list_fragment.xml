@@ -12,7 +12,8 @@
     android:id="@+id/course_assignment"
     android:layout_marginTop="10dp"
     android:layout_gravity="left"
-        android:textFilterEnabled="true" />
+        android:textFilterEnabled="true"
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -21,8 +22,10 @@
         android:textSize="40dp"
         android:id="@+id/notification"
         android:textColor="#DCDCDC"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_gravity="start"
+        android:gravity="left"
+        android:textScaleX="0.5"
+        android:textStyle="normal"
          android:visibility="gone"
         />
 
