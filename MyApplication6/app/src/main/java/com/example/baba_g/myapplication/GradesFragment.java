@@ -1,5 +1,5 @@
 package com.example.baba_g.myapplication;
-
+//shows grades of all courses while grades tab is on.
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

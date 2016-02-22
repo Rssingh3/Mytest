@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.baba_g.myapplication">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,15 +11,50 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".SplashScreen"
+            android:label="Moodle Plus"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".homescreen"
+            android:label="@string/title_activity_homescreen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".user"
+            android:label="@string/title_activity_user"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".teaching_assistants"
+            android:label="@string/title_activity_teaching_assistants"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".loginoption"
+            android:label="@string/title_activity_loginoption"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".course_info"
+            android:label="@string/title_activity_course_info"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

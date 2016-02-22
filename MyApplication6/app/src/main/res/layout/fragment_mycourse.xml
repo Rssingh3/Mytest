@@ -2,13 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment"
     tools:context="com.example.baba_g.myapplication.Fragment1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:text="Hello Fragment 1!" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:id="@+id/Mycourse"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="left" />
+
+
 
 </FrameLayout>
