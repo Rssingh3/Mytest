@@ -3,7 +3,9 @@ package com.example.baba_g.myapplication;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Base64;
 import android.view.LayoutInflater;
@@ -42,7 +44,7 @@ public class MycourseFragment extends Fragment {
     String response2,url,current_sem,current_year,course_code,course_name,temp;
     ListView Mycourse;
     String[] course_data;
-    JSONObject subject;
+    JSONObject subject,user;
     JSONArray courses;
     List<String> list = new ArrayList<String>();
 
@@ -83,9 +85,10 @@ public class MycourseFragment extends Fragment {
                         String response1 = response.toString();
                         try {
 
+                            Toast.makeText(getContext(), response1, Toast.LENGTH_SHORT).show();
 
-
-                            JSONObject user = new JSONObject(response1);
+                            user = new JSONObject(response1);
+                            if(user!=null){
                             current_sem = user.getString("current_sem");
                             current_year = user.getString("current_year");
                             courses = user.getJSONArray("courses");
@@ -105,8 +108,9 @@ public class MycourseFragment extends Fragment {
 
                             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,list);
 
-                            Mycourse.setAdapter(arrayAdapter);
-//                            Toast.makeText(getContext(), list.get(1), Toast.LENGTH_SHORT).show();
+                                Mycourse.setAdapter(arrayAdapter);
+
+                            Toast.makeText(getContext(), list.get(1), Toast.LENGTH_SHORT).show();
 
                             Mycourse.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -115,12 +119,16 @@ public class MycourseFragment extends Fragment {
                                                         int position, long id) {
                                     int itemPosition = position;
                                     String itemValue = (String) Mycourse.getItemAtPosition(position);
-                                    Intent intent_teaching = new Intent(getContext(), teaching_assistants.class);
-                                    startActivity(intent_teaching);
+                                    ArrayList<String> array = new ArrayList<String>();
+                                    Intent intent = new Intent(getContext(), course_info.class);
+                                    itemValue = itemValue.substring(0,6);
+                                    array.add(itemValue);
+                                    intent.putStringArrayListExtra("code", array);
+                                    startActivity(intent);
 
                                 }
 
-                            });
+                            });}
 
                         } catch (JSONException e) {
                             e.printStackTrace();

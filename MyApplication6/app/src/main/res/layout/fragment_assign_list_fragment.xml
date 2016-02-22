@@ -4,10 +4,26 @@
     android:layout_height="match_parent"
     tools:context="com.example.baba_g.myapplication.assign_list_fragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
+
+    <ListView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/course_assignment"
+    android:layout_marginTop="10dp"
+    android:layout_gravity="left"
+        android:textFilterEnabled="true" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="60dp"
+        android:text="No Assignments !"
+        android:textSize="40dp"
+        android:id="@+id/notification"
+        android:textColor="#DCDCDC"
+        android:layout_gravity="center"
+        android:gravity="center"
+         android:visibility="gone"
+        />
 
 </FrameLayout>

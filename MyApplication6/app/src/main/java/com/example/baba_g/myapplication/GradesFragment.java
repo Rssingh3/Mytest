@@ -32,13 +32,12 @@ public class GradesFragment extends Fragment {
 
     TextView name;
     ArrayList<String> data;
-    String url,courses1,grades1,course_code,score,weight,out_of,temp;
+    String response2,url,current_sem,current_year,course_code,course_name,temp;
     ListView Mygrade;
     String[] course_data;
-    JSONObject subject,grade;
-    JSONArray courses,grades;
+    JSONObject subject;
+    JSONArray courses;
     List<String> list = new ArrayList<String>();
-    float abs_marks;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -72,8 +71,6 @@ public class GradesFragment extends Fragment {
         RequestQueue queue = Volley.newRequestQueue(getContext());
         Mygrade = (ListView)v. findViewById(R.id.Mygrade);
 
-//        Toast.makeText(getContext(), "yupp", Toast.LENGTH_SHORT).show();
-
         StringRequest jsObjRequest = new StringRequest
                 (Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
@@ -84,30 +81,17 @@ public class GradesFragment extends Fragment {
 
 
                             JSONObject user = new JSONObject(response1);
-//                            current_sem = user.getString("current_sem");
-//                            current_year = user.getString("current_year");
+                            current_sem = user.getString("current_sem");
+                            current_year = user.getString("current_year");
                             courses = user.getJSONArray("courses");
-                            grades = user.getJSONArray("grades");
-                            courses1=courses.toString();
-//                            Toast.makeText(getContext(), courses1, Toast.LENGTH_LONG).show();
-
                             course_data = new String[courses.length()];
-                            String s="S_no"+"   "+"Course"+"    "+"Grade Item"+"    "+"Score"+"     "+"Weight"+"    "+"Absolute Marks";
-                            list.add(s);
-                            int s_no=1;
                             for(int i = 0;i<courses.length();i++) {
                                 subject = courses.getJSONObject(i);
-                                grade = grades.getJSONObject(i);
                                 course_code = subject.getString("code");
-                                grades1 = grade.getString("name");
-                                score =grade.getString("score");
-                                weight =grade.getString("weightage");
-                                out_of=grade.getString("out_of");
-                                abs_marks=(Float.parseFloat(score)*Float.parseFloat(weight))/Float.parseFloat(out_of);
-                                temp = s_no+"     "+course_code + "   " + grades1+ "   " + score+"/"+out_of+"   "+weight+"    "+abs_marks;
+                                course_name = subject.getString("name");
+                                temp = course_code + "  " + course_name;
 
                                 list.add(temp);
-                                s_no+=1;
 
 
                             }
@@ -117,22 +101,21 @@ public class GradesFragment extends Fragment {
                             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1,list);
 
                             Mygrade.setAdapter(arrayAdapter);
-//                            Toast.makeText(getContext(), list.get(1), Toast.LENGTH_SHORT).show();
-//                            Toast.makeText(getContext(), "yupp", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), list.get(1), Toast.LENGTH_SHORT).show();
 
-//                            Mygrade.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//
-//                                @Override
-//                                public void onItemClick(AdapterView<?> parent, View view,
-//                                                        int position, long id) {
-//                                    int itemPosition = position;
-//                                    String itemValue = (String) Mygrade.getItemAtPosition(position);
-//                                    Intent intent_teaching = new Intent(getContext(), teaching_assistants.class);
-//                                    startActivity(intent_teaching);
-//
-//                                }
-//
-//                            });
+                            Mygrade.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view,
+                                                        int position, long id) {
+                                    int itemPosition = position;
+                                    String itemValue = (String) Mygrade.getItemAtPosition(position);
+                                    Intent intent_teaching = new Intent(getContext(), teaching_assistants.class);
+                                    startActivity(intent_teaching);
+
+                                }
+
+                            });
 
                         } catch (JSONException e) {
                             e.printStackTrace();
