@@ -4,11 +4,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.baba_g.myapplication.Fragment2">
 
-    <TextView
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:id="@+id/notify"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
         android:textStyle="bold"
-        android:text="Hello Fragment 2!" />
+        android:scrollbarAlwaysDrawHorizontalTrack="true"/>
 
 </FrameLayout>
