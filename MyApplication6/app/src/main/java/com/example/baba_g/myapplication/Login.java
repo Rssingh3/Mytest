@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(Login.this, "error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Login.this, "error", Toast.LENGTH_LONG).show();
                         String response2 = ("Response: " + error.toString());
                         Toast.makeText(Login.this, response2, Toast.LENGTH_LONG).show();
 
